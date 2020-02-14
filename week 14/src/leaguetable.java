@@ -1,15 +1,12 @@
 public class leaguetable {
     public static void main(String[] args) {
-        String s;
-        String a;
-        s = String.format("%s %5s %5s %5s", "Wigan Warriors", "10", "15", "3");
-        a = String.format("%s %5s %5s %5s", "Castleford Tigers", "53","53", "7");
+        // Creating table layout
+        String tableHeader = String.format("%-7s %-30s %-10s %-10s %-10s %-10s %-10s %-10s %-15s %-10s","Pos","Team","Played","Won","Lost","Drawn","For","Against","Pts Diff","Points");
+        System.out.println(tableHeader);
 
-        System.out.println(s);
-        System.out.println(a);
+        // Adding teams
 
-        for(String listItem : teams.teams){
-            System.out.println(listItem);
-        }
+        // Outputting teams into the table
     }
+
 }
