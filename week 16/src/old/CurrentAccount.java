@@ -1,19 +1,23 @@
+package old;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class YoungSaverAccount {
+public class CurrentAccount {
     private String name;
     private String accountNumber;
     private String sortCode;
     private Double balance;
-    private Double interest;
+    private Boolean overdraft;
 
-    public YoungSaverAccount(String name, String accountNumber, String sortCode, Double balance, Double interest) {
+
+
+    public CurrentAccount(String name, String accountNumber, String sortCode, Double balance, Boolean overdraft) {
         this.name = name;
         this.accountNumber = accountNumber;
         this.sortCode = sortCode;
         this.balance = balance;
-        this.interest = interest;
+        this.overdraft = overdraft;
     }
 
     public String getName() {
@@ -40,34 +44,34 @@ public class YoungSaverAccount {
         this.sortCode = sortCode;
     }
 
-    public Double getBalance() {
-        return balance;
+    public String getBalance() {
+        Locale locale = new Locale("en", "GB");
+        NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
+        return cf.format(balance);
     }
 
     public void setBalance(Double balance) {
         this.balance = balance;
     }
 
-    public Double getInterest() {
-        return interest;
+    public Boolean getOverdraft() {
+        return overdraft;
     }
 
-    public void setInterest(Double interest) {
-        this.interest = interest;
+    public void setOverdraft(Boolean overdraft) {
+        this.overdraft = overdraft;
     }
 
-    public void deposit(Double amount) {
+    public void deposit(Double amount){
         Locale locale = new Locale("en", "GB");
         NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
-        if (amount <= 0) {
+        if(amount<=0){
             System.out.println("Error: You must deposit at least £0.01");
         }
-        else if(balance >= 100){
-            System.out.println("Error: You cannot have more than £100 balance.");
-        }
-        else {
+        else{
             this.balance += amount;
         }
+
     }
 
     public void withdraw(Double amount){
@@ -83,5 +87,17 @@ public class YoungSaverAccount {
     }
 
 
+/*    public static void old.main(String[] args) {
+     //   Scanner input
+        Locale locale = new Locale("en", "GB");
+        NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
+        old.CurrentAccount ca = new old.CurrentAccount("Haroon","4829384","48-37-28",0.0);
+        System.out.println("Your Current Balance is: "+cf.format(ca.getBalance()));
+        Scanner input = new Scanner(System.in);
+        System.out.println("how much would you like to deposit? ");
+        Double amount = input.nextDouble();
+        ca.deposit(amount);
+
+    }*/
 
 }

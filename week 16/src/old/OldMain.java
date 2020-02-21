@@ -1,8 +1,8 @@
-import java.text.NumberFormat;
-import java.util.Locale;
+package old;
+
 import java.util.Scanner;
 
-public class main {
+public class OldMain {
     public static void main(String[] args) {
         //   Scanner input
         //Locale locale = new Locale("en", "GB");

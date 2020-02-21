@@ -1,14 +1,16 @@
+package old;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class DepositAccount {
+public class YoungSaverAccount {
     private String name;
     private String accountNumber;
     private String sortCode;
     private Double balance;
     private Double interest;
 
-    public DepositAccount(String name, String accountNumber, String sortCode, Double balance, Double interest) {
+    public YoungSaverAccount(String name, String accountNumber, String sortCode, Double balance, Double interest) {
         this.name = name;
         this.accountNumber = accountNumber;
         this.sortCode = sortCode;
@@ -61,7 +63,11 @@ public class DepositAccount {
         NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
         if (amount <= 0) {
             System.out.println("Error: You must deposit at least £0.01");
-        } else {
+        }
+        else if(balance >= 100){
+            System.out.println("Error: You cannot have more than £100 balance.");
+        }
+        else {
             this.balance += amount;
         }
     }

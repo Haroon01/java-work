@@ -1,21 +1,21 @@
+package old;
+
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class CurrentAccount {
+public class DepositAccount {
     private String name;
     private String accountNumber;
     private String sortCode;
     private Double balance;
-    private Boolean overdraft;
+    private Double interest;
 
-
-
-    public CurrentAccount(String name, String accountNumber, String sortCode, Double balance, Boolean overdraft) {
+    public DepositAccount(String name, String accountNumber, String sortCode, Double balance, Double interest) {
         this.name = name;
         this.accountNumber = accountNumber;
         this.sortCode = sortCode;
         this.balance = balance;
-        this.overdraft = overdraft;
+        this.interest = interest;
     }
 
     public String getName() {
@@ -42,34 +42,30 @@ public class CurrentAccount {
         this.sortCode = sortCode;
     }
 
-    public String getBalance() {
-        Locale locale = new Locale("en", "GB");
-        NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
-        return cf.format(balance);
+    public Double getBalance() {
+        return balance;
     }
 
     public void setBalance(Double balance) {
         this.balance = balance;
     }
 
-    public Boolean getOverdraft() {
-        return overdraft;
+    public Double getInterest() {
+        return interest;
     }
 
-    public void setOverdraft(Boolean overdraft) {
-        this.overdraft = overdraft;
+    public void setInterest(Double interest) {
+        this.interest = interest;
     }
 
-    public void deposit(Double amount){
+    public void deposit(Double amount) {
         Locale locale = new Locale("en", "GB");
         NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
-        if(amount<=0){
+        if (amount <= 0) {
             System.out.println("Error: You must deposit at least £0.01");
-        }
-        else{
+        } else {
             this.balance += amount;
         }
-
     }
 
     public void withdraw(Double amount){
@@ -85,17 +81,5 @@ public class CurrentAccount {
     }
 
 
-/*    public static void main(String[] args) {
-     //   Scanner input
-        Locale locale = new Locale("en", "GB");
-        NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
-        CurrentAccount ca = new CurrentAccount("Haroon","4829384","48-37-28",0.0);
-        System.out.println("Your Current Balance is: "+cf.format(ca.getBalance()));
-        Scanner input = new Scanner(System.in);
-        System.out.println("how much would you like to deposit? ");
-        Double amount = input.nextDouble();
-        ca.deposit(amount);
-
-    }*/
 
 }
