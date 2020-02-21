@@ -3,7 +3,7 @@ package refactored;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class BankAccount {
+abstract class BankAccount {
     private String name;
     private String accountNumber;
     private String sortCode;
@@ -53,7 +53,7 @@ public class BankAccount {
     public void deposit(Double amount){
         Locale locale = new Locale("en", "GB");
         NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
-        if(amount<=0){
+        if(amount<0){
             System.out.println("Error: You must deposit at least £0.01");
         }
         else{
@@ -66,7 +66,7 @@ public class BankAccount {
         Locale locale = new Locale("en", "GB");
         NumberFormat cf = NumberFormat.getCurrencyInstance(locale);
 
-        if(amount<=0){
+        if(amount<0){
             System.out.println("Error: You cannot withdraw less than £0.01");
         }
         else{
