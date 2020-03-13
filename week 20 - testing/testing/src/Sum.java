@@ -1,5 +1,3 @@
-package testing;
-
 public class Sum {
 
     public Sum() {
